@@ -1,6 +1,7 @@
 import express from "express";
 import startup from "./lib/startup";
 import api from "./api/index";
+import jobs from "./api/jobs";
 import middleware from "./middleware/index";
 import logger from "./lib/logger";
 
@@ -11,6 +12,7 @@ startup()
 
     middleware(app);
     api(app);
+    jobs(app);
 
     app.listen(port, () => {
       if (process.send) {
